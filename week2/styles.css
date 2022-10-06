@@ -1,0 +1,33 @@
+body {
+  box-sizing: border-box;
+  background-color: #EEE;
+  font-family: system-ui;
+}
+h1 {
+  text-align: center;
+}
+
+div {
+  display: flex;
+  column-gap: 36px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+  div {
+    display: block;
+  }
+}
+
+article {
+  background-color: white;
+  text-align: center;
+  padding: 2em;
+  flex-basis: 25%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+img {
+  width: 75%;
+  box-shadow: 13px 15px 2px #777;
+}

@@ -3,7 +3,7 @@
 **Notes**
 
 1. Using the browser's "Inspector"
-  * Try to learn the keyboard shortcut for invoking the browser's inspector (option-cmd-i in Chrome/macOS and Safari/macOIS, for example)
+  * Try to learn the keyboard shortcut for invoking the browser's inspector (option-cmd-i in Chrome/macOS and Safari/macOS, for example)
   * The inspector is a VERY valuable tool. It's the only debugging tool web designers have.
   * Use the Inspector on your favorite sites. Try to really understand how to decode CSS rules from the inspector.
 
@@ -14,7 +14,8 @@
   * "Selectors" can be HTML element names, `#` for selecting by the `id` attribute, and `.` for selecting by the `class` attribute.
   * CSS rules can be written to various levels of specificity, allowing (for example) broad, general rules to apply to most elements, while more specific rules can be written for certain parts of the page.
   * When conflicting rules have equal specificity, the last-processed rule "wins".  This usually means that rules placed lower in the source code have higher priority than rules higher in the source code.
-  * The `<div>` element groups 
+  * The `<div>` element groups elements together as a single block.
+  * The `<span>` element groups content together inline.
   * "Overflow" happens when an element's content is allowed to spill
     outside of its containing element's rectangle.  This happens a lot
     with both text and graphics.  Try `width`, `flex-basis`, or `object-fit` rules before resorting to `overflow` settings.
@@ -34,6 +35,7 @@
 4. Media queries
   * Mobile "responsive" rules using `min-width`, `max-width`, etc.
   * Screen vs Print
+  * DON'T FORGET in your HTML: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
   
 
 
