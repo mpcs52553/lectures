@@ -1,8 +1,17 @@
 // Your code goes here
+document.addEventListener("DOMContentLoaded", setupListeners)
 
+function setupListeners() {
+  const link = document.querySelector("#get_location")
+  link.addEventListener("click", function(e) {
+    navigator.geolocation.getCurrentPosition(receiveLocation);
+  });
+}
 
-
-
+function receiveLocation(gps) {
+  console.log(gps)
+  setImagePosition(gps)
+}
 
 // Do not change the code below
 function setImagePosition(data) {
