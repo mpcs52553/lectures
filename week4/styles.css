@@ -1,0 +1,19 @@
+ul {
+  padding: 0em 2em;
+}
+
+.lead {
+  text-transform: uppercase;
+  background-color: darkblue;
+  color: white;
+  font-weight: bold;
+  padding: 6px;
+  text-align: center;
+}
+.col {
+  padding: 0px;
+  flex-basis: 25%;
+  margin: 1em 20px 6px;
+}
+
+#dice img { width: 200px; }
