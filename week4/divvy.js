@@ -3,7 +3,7 @@
 // Real-time status: https://gbfs.divvybikes.com/gbfs/en/station_status.json
 
 document.addEventListener("DOMContentLoaded", function() {
-  // document.querySelector("h1").addEventListener("click", loadStations )
+  document.querySelector("h1").addEventListener("click", loadStations )
 })
 
 async function loadStations() {
