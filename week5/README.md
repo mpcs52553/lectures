@@ -1,3 +1,7 @@
+
+We will resume at 7:00pm sharp
+
+
 # Week 5
 
 Next week: Install Node from https://nodejs.org/

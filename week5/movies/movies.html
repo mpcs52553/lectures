@@ -23,10 +23,27 @@
 
       <div class="actions">
         <a class="details" href="#">See Details</a>
-        <a class="like">&hearts; 0</a>
+        <!-- HTML Entity -->
+        <a data-count="0" class="like">&hearts; <span>0</span></a>
       </div>
 
     </article>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('.like').forEach((e) => e.addEventListener('click', (e) => {
+          console.log(e);
+          let heartElement = e.target;
+          let count = parseInt(heartElement.dataset.count)
+          count += 1
+          heartElement.dataset.count = count
+
+          let span = heartElement.querySelector("span")
+          span.innerText = count
+
+        }))
+      })
+    </script>
 
     <article>
       <h2>Spider-Man</h2>
