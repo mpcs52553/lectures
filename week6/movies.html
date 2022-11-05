@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <h1 class="mt-5">My Favorite Movies</h1>
+    
+    <div class="container mt-5">
+      <div class="row" id="app">
+        
+      </div>
+    </div>
+
+    <script type="text/babel" src="movies.js"></script>
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.querySelector('#app'));
+      root.render(<App numMovies="4" />);
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+        class MovieCollection extends React.Component {
+
+        constructor(props) {
+          super(props)
+          this.state = { 
+            movies: [
+              {
+                title: "The Mandalorian",
+                posterUrl: "https://image.tmdb.org/t/p/w440_and_h660_face/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+                description: "After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter."
+              },
+              
+              {
+                title: "Apollo 13",
+                posterUrl: "https://image.tmdb.org/t/p/w440_and_h660_face/oYUZHYMwNKnE1ef4WE5Hw2a9OAY.jpg",
+                description: "The true story of technical troubles that scuttle the Apollo 13 lunar mission in 1970, risking the lives of astronaut Jim Lovell and his crew, with the failed journey turning into a thrilling saga of heroism. Drifting more than 200,000 miles from Earth, the astronauts work furiously with the ground crew to avert tragedy."
+              },
+              {
+                title: "Force Awakens",
+                posterUrl: "https://image.tmdb.org/t/p/w440_and_h660_face/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg",
+                description: "Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers."
+              },
+              {
+                title: "Toy Story",
+                posterUrl: "https://image.tmdb.org/t/p/w440_and_h660_face/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
+                description: "Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences."
+              }
+            ]
+            
+          }
+        }
+
+        render = () => {
+          const markup = this.state.movies.map(function(item) {
+            return (
+              <section className="col-sm-3 pt-3" key={item.title}>
+                <h2 className="pb-3">{item.title}</h2>
+                <img src={item.posterUrl}></img>
+                <p className="mt-3">{item.description}</p>
+              </section>
+          )});
+          return markup;
+        }
+      }
+
+
+ -->

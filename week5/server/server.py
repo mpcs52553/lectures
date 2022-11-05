@@ -7,7 +7,7 @@ from flask import request
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/") # 'root' path of the url
 def home():
     return render_template('login_form.html')
 
@@ -18,5 +18,11 @@ def handle_login():
     
     return render_template('login_failure.html')
 
-
+@app.route("/account", methods=["GET"])
+def show_account():
+    # Based on the user, look up their profile information
+    # SQL.....
+    email = "me@example.com"
+    password = "maroon"
+    return render_template("account.html", email=email, password=password)
 

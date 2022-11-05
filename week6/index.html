@@ -1,0 +1,60 @@
+<!-- 1. Dynamic HTML with JavaScript -->
+<!-- 2. Dynamic HTML with React, using a function component -->
+<!-- 3. Dynamic HTML with React, using a function component with JSX -->
+<!-- 4. Dynamic HTML with React, using a class component -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Demo</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="demo">
+
+  </div>
+
+  <!-- React is a layer of indirection between the code and the browser. -->
+  <!-- React "props" are just HTML element attributes. -->
+  <!-- Functions that return React components can be represented in JSX -->
+  <!-- JSX Properties require { } around the expression. -->
+  <script type="text/babel">
+    function App() {
+      const my_id = "my_paragraph"
+      return (
+        <div>
+          <h1>Hello!</h1>
+          <p id={my_id} style={{color: 'red'}}>This is my paragraph</p>
+        </div>
+      )
+
+      // return <h1>This is the new App!</h1>
+      // return React.createElement("h1", {}, "This is the new App")
+    }
+    const root = ReactDOM.createRoot(document.querySelector('#demo'));
+    root.render(<App/>);
+  </script>
+
+  <script>
+    // function draw() {
+    //   return <h1>Howdy</h1>
+    // }
+    // let newElement = document.createElement("h1")
+    // newElement.innerText = "Hello World!"
+    // document.querySelector("#demo").appendChild(newElement)
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

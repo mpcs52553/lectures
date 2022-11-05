@@ -1,0 +1,32 @@
+body {
+  font-family: system-ui;
+  font-size: 14px;
+  background-color:#708090;
+}
+
+.container {
+  background-color: white;
+  border: 0; 
+}
+
+section {
+  text-align: center;
+  border-right: solid 4px #CCC;
+}
+section:last-child {
+  border-right: none;
+}
+img { 
+  box-shadow: 7px 7px 7px #666;
+  border-radius: 6px;
+  width: 80%;
+  filter: grayscale(0.8);
+}
+img:hover {
+  filter: grayscale(0.0);
+}
+
+h1 { 
+  color: white;
+  text-align: center; 
+}
