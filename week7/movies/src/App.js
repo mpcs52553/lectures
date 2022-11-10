@@ -1,30 +1,5 @@
 import React from 'react';
-
-function MoviePoster(props) {
-  const imgUrl = `http://image.tmdb.org/t/p/w185/${props.movie.poster_path}`
-  const altText = `Poster for ${props.movie.title}`
-  return (
-  <div className="col-sm-3 text-center mb-2 poster" data-movie-id={props.movie.id}>
-    <img src={imgUrl}
-        className="img-fluid"
-        alt={altText}>
-    </img>
-    <p className="mt-2">
-      {props.movie.release_date ? props.movie.release_date.substr(0, 4) : null}
-      <span className="badge bg-primary mx-3">
-      {props.movie.vote_average}
-      </span>
-      <a href="#" class="like_button">
-        &hearts; 
-        <span class="like_count">0</span>
-      </a>
-    </p>
-  </div>
-  )
-}
-
-
-
+import MoviePoster from './MoviePoster'
 
 class App extends React.Component {
 
@@ -32,7 +7,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       movies: [],
-      likes: {},
+      likes: { },
     }
   }
 
@@ -43,6 +18,13 @@ class App extends React.Component {
     console.log(data)
     // this.state.movies = data.results
     this.setState({ movies: data.results.filter(movie => movie.vote_average >= 6.0) })
+  }
+
+  handleLikeClick = (movie) => {
+    console.log("The like button was clicked.")
+    let likeData = this.state.likes
+    likeData[movie.id] = (likeData[movie.id] || 0) + 1
+    this.setState({ likes: likeData })
   }
 
   showTopRatedMovies = async (e) => {
@@ -56,7 +38,7 @@ class App extends React.Component {
   render() {
 
     const posters = this.state.movies.map(movie_data => {
-      return <MoviePoster movie={movie_data}/>
+      return <MoviePoster onLikeClicked={this.handleLikeClick} likes={this.state.likes} movie={movie_data}/>
     })
 
     return (
