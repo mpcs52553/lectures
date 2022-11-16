@@ -9,22 +9,22 @@ We will also learn about browser 'cookies' to see how they help with state manag
 After cloning the repository, you'll need to prepare the `movies` application: 
 
 ```
-week7        $ cd movies
-week7/movies $ npm install
+week8        $ cd movies
+week8/movies $ npm install
 ```
 
 Now you can start the movies app:
 
 ```
-week7/movies $ npm start
+week8/movies $ npm start
 ```
 
 
 Next, in a NEW terminal/shell tab or window, install a Python module:
 
 ```
-week7        $ cd server
-week7/server $ pip3 install flask-cors
+week8        $ cd server
+week8/server $ pip3 install flask-cors
 ```
 
 and then start the Python service:
@@ -41,9 +41,10 @@ When you're done, use CTRL-C on BOTH servers to shut everything down.
 
 1. New code architecture: MoviePosters now have state!
 2. Implementing HTML forms in React
-3. Using an external Python service to manage 'Like' state for each movie
-4. HTTP is stateless, so we how can we maintain state across page refreshes?
-5. One last word about frameworks
-6. Thought experiment: How would we all share the same movie data (i.e. 'like' counts) amongst ourselves?
-
+3. React: OOP or Functional?
+4. Using an external Python service to manage 'Like' state for each movie
+5. HTTP is stateless, so we how can we maintain state across page refreshes?
+6. One last word about frameworks
+7. Thought experiment: How would we all share the same movie data (i.e. 'like' counts) amongst ourselves?
+8. What haven't we done?
 
