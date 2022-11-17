@@ -7,7 +7,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       movies: [],
-      likes: { }
+      likes: { },
+      searchTerm: ""
     }
   }
 
@@ -37,6 +38,20 @@ class App extends React.Component {
     this.setState( { movies: data.results.filter(movie => movie.vote_average > 7.0) } )
   }
 
+  handleSearchTermChange = (e) => {
+    this.setState( { searchTerm: e.target.value })
+  }
+
+  performSearch = async (e) => {
+    e.preventDefault()
+    console.log("Form submitted!")
+    // document.querySelector
+    const url = this.urlForSearch(this.state.searchTerm)
+    const httpResponse = await fetch(url)
+    const data = await httpResponse.json()
+    this.setState({ searchTerm: "", movies: data.results.filter(movie => (movie.vote_average > 7.0))})
+  }
+
   render() {
     const posters = this.state.movies.map(movie_data => {
       return (
@@ -47,8 +62,8 @@ class App extends React.Component {
     return (
       <div>
         <header className="row mb-5 justify-content-between">
-          <form className="col-sm-4">
-            <input className="form-control" autoFocus name="search" type="text" placeholder="Search by title...">
+          <form onSubmit={this.performSearch} className="col-sm-4">
+            <input value={this.state.searchTerm} onChange={this.handleSearchTermChange} className="form-control" autoFocus name="search" type="text" placeholder="Search by title...">
             </input>
           </form>
 
@@ -66,6 +81,15 @@ class App extends React.Component {
     )
   }
 
+  urlForSearch(keyword) {
+    const apiKey = "api_key=bde024f3eb43f597aafe01ed9c9098c6"
+    const language = "language=en-US"
+    const region = "region=US"
+    const filter = "include_adult=false"
+    const query = "query=" + keyword
+    const base_url = `https://api.themoviedb.org/3/search/movie`
+    return `${base_url}?${apiKey}&${language}&${region}&${filter}&${query}`
+  }
   urlForMovies(resource) {
     const apiKey = "api_key=bde024f3eb43f597aafe01ed9c9098c6"
     const language = "language=en-US"
