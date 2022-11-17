@@ -16,7 +16,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/") # 'root' path of the url
 def home():
-    current_user = request.args.get('username')
+    # current_user = request.args.get('username')
+    current_user = request.cookies.get('user')
     return render_template('home.html', username=current_user)
 
 @app.route("/about") # 'root' path of the url
@@ -30,6 +31,7 @@ def login():
     pwd = request.form.get('password')
 
     http_response = make_response(redirect('/?username=' + username))
+    http_response.set_cookie('user', username)
     return http_response
 
 @app.route("/logout", methods=["GET"])

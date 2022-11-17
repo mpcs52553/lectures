@@ -58,7 +58,6 @@ class App extends React.Component {
         <MoviePoster identifier={movie_data.id} key={movie_data.id}/>
       )
     })
-
     return (
       <div>
         <header className="row mb-5 justify-content-between">
