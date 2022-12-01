@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Example</title>
+  <link rel="stylesheet" href="chess.css">
+</head>
+<body>
+  
+  <table>
+    <tr>
+      <td><span id="br1" draggable="true" class="black">&#9820;</span></td>
+      <td><span id="bn1" draggable="true" class="black">&#9822;</span></td>
+      <td><span id="bb1" draggable="true" class="black">&#9821;</span></td>
+      <td><span id="bk" draggable="true" class="black">&#9819;</span></td> 
+      <td><span id="bq" draggable="true" class="black">&#9818;</span></td> 
+      <td><span id="bb2" draggable="true" class="black">&#9821;</span></td> 
+      <td><span id="bn2" draggable="true" class="black">&#9822;</span></td> 
+      <td><span id="br2" draggable="true" class="black">&#9820;</span></td> 
+    </tr>
+    <tr>
+      <td><span id="bp1" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp2" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp3" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp4" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp5" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp6" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp7" draggable="true" class="black">&#9823;</span></td>
+      <td><span id="bp8" draggable="true" class="black">&#9823;</span></td>
+    </tr>
+    <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
+    <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
+    <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
+    <tr><td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td></tr>
+    <tr>
+      <td><span id="wp1" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp2" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp3" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp4" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp5" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp6" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp7" draggable="true" class="white">&#9817;</span></td>
+      <td><span id="wp8" draggable="true" class="white">&#9817;</span></td>
+    </tr>
+    <tr>
+      <td><span id="wr1" draggable="true" class="white">&#9814;</span></td>
+      <td><span id="wn1" draggable="true" class="white">&#9816;</span></td>
+      <td><span id="wb1" draggable="true" class="white">&#9815;</span></td>
+      <td><span id="wk" draggable="true" class="white">&#9813;</span></td>
+      <td><span id="wq" draggable="true" class="white">&#9814;</span></td>
+      <td><span id="wb2" draggable="true" class="white">&#9815;</span></td>
+      <td><span id="wn2" draggable="true" class="white">&#9816;</span></td>
+      <td><span id="wr2" draggable="true" class="white">&#9814;</span></td>
+    </tr>
+
+  </table>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Listen for drag events
+      const squares = document.querySelectorAll('td')
+      squares.forEach((square) => {
+        square.addEventListener("dragstart", (e) => {
+          e.dataTransfer.setData("text/plain", e.target.id)
+          e.target.style.opacity = "30%"
+        })
+
+        square.addEventListener("dragover", (e) => {
+          e.preventDefault()
+          e.dataTransfer.dropEffect = "move";
+        })
+        
+        square.addEventListener("drop", (e) => {
+          e.preventDefault()
+          const id = e.dataTransfer.getData("text/plain")
+          let piece = document.querySelector(`#${id}`)
+          if (id !== e.target.id) {
+            e.target.replaceChildren(piece)
+          }
+          piece.style.opacity = "100%"
+        })
+      })
+    })
+  </script>
+</body>
+</html>

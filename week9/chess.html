@@ -55,5 +55,30 @@
     </tr>
   </table>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Listen for drag events
+      const squares = document.querySelectorAll('td')
+      squares.forEach((square) => {
+        square.addEventListener("dragstart", (e) => {
+          e.dataTransfer.setData("text/plain", e.target.id)
+          // e.target.style.opacity = "30%"
+        })
+        square.addEventListener("dragover", (e) => {
+          e.preventDefault()
+          e.dataTransfer.dropEffect = "move";
+        })
+        square.addEventListener("drop", (e) => {
+          e.preventDefault()
+          const id = e.dataTransfer.getData("text/plain")
+          let piece = document.querySelector(`#${id}`)
+          if (id !== e.target.id) {
+            e.target.replaceChildren(piece)
+          }
+          piece.style.opacity = "100%"
+        })
+      })
+    })
+  </script>
 </body>
 </html>
